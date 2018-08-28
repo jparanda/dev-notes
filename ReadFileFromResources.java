@@ -2,6 +2,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+*@author jparandag
+*
+*/
 public class ReadFileFromResources {
 
   public static void main(String[] args) {
@@ -12,7 +16,6 @@ public class ReadFileFromResources {
   private String getFile(String fileName) {
 
 	StringBuilder result = new StringBuilder("");
-
 	//Get file from resources folder
 	ClassLoader classLoader = getClass().getClassLoader();
 	File file = new File(classLoader.getResource(fileName).getFile());
@@ -23,15 +26,11 @@ public class ReadFileFromResources {
 			String line = scanner.nextLine();
 			result.append(line).append("\n");
 		}
-
 		scanner.close();
 
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
-		
 	return result.toString();
-
   }
-
 }
